@@ -7,7 +7,7 @@ $(".submit-btn").on("click", function() {
         // Don't refresh the page!
         event.preventDefault();
 
-
+        var temperature = 0;
         //variable for grabbing the user location input
         var usrInput = $("#city-input").val().trim();
 
@@ -31,7 +31,11 @@ $(".submit-btn").on("click", function() {
 
                 $(".weather").html(response.main.temp + "°F");
 
+                temperature = response.main.temp;
+
         });
+
+        console.log("new temp:" +  temperature);
 
 
         // clear the location input form
