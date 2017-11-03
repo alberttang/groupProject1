@@ -27,7 +27,7 @@ $(".submit-btn").on("click", function() {
             }).done(function(response) {
                 
                 console.log("Temp: "  + response.main.temp);
-                $(".weather").append(response.main.temp + "°F");
+                $(".weather").html(response.main.temp + "°F");
 
         });
 
