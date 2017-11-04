@@ -36,17 +36,17 @@ $(".submit-btn").on("click", function() {
 
                 temperature = response.main.temp;
 
-                if( temperature < 60){
+                if( temperature < 70){
 
                     foodType = "Cold";
 
-                } else if (temperature > 61 && temperature < 80 ){
+                } else if (temperature > 71 && temperature < 80 ){
                     foodType = "Warm";
                 } else {
                     foodType = "Hot"
                 };
 
-            $(".foodType").html("the perfect weather for "+ foodType +" food!");
+            $(".foodType").html("It's "+ foodType);
 
         });
 
