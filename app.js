@@ -8,6 +8,8 @@ $(".submit-btn").on("click", function() {
         event.preventDefault();
 
         var temperature = 0;
+        var foodType;
+
         //variable for grabbing the user location input
         var usrInput = $("#city-input").val().trim();
 
@@ -25,17 +27,29 @@ $(".submit-btn").on("click", function() {
             url: queryURL,
             method: "GET"
             }).done(function(response) {
-                
+
+                console.log(response);
                 console.log("Temp: "  + response.main.temp);
                
 
-                $(".weather").html(response.main.temp + "°F");
+                $(".weather").html("It is Currently " + response.main.temp + "°F, ");
 
                 temperature = response.main.temp;
 
+                if( temperature < 60){
+
+                    foodType = "Cold";
+
+                } else if (temperature > 61 && temperature < 80 ){
+                    foodType = "Warm";
+                } else {
+                    foodType = "Hot"
+                };
+
+            $(".foodType").html("the perfect weather for "+ foodType +" food!");
+
         });
 
-        console.log("new temp:" +  temperature);
 
 
         // clear the location input form
