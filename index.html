@@ -23,12 +23,10 @@
                     <form>
 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="city-input">Location</label>
-                                    <input type="text" class="form-control " id="city-input" placeholder="Enter a location" autocomplete="on" runat="server">
+                                    <input type="text" class="form-control input-lg" id="city-input" placeholder="Enter your location" autocomplete="on" runat="server">
                                 </div>
-                                <button type="submit" class="btn submit-btn btn-default">Submit</button>
                     </form>
                     </div>
                     </div>
@@ -65,7 +63,11 @@
                 </div>
                 <!-- *********************************************** -->
                 <div class="panel-body">
-                    <img class="img-responsive" src="images/pho.jpg" class="img-rounded" id="Panel_Image">
+                    <p id="restaurantPhoto"></p>
+                    <p id="restaurantName"></p>
+                    <p id="restaurantAddress"></p>
+                    <p id="restaurantHours"></p>
+                    <p id="restaurantRating"></p>
                 </div>
                 <!-- *********************************************** -->
             </div>
@@ -134,7 +136,6 @@
         </div>
     </div>
     </div>
-    <div id="restaurantName"></div>
     <script type="text/javascript" src="./app.js"></script>
 </body>
 

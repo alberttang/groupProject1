@@ -12,18 +12,18 @@ function initialize() {
         console.log(place.geometry.location.lng());
 
         //place.name;
-        var pyrmont = new google.maps.LatLng(lat, lng);
+        var center = new google.maps.LatLng(lat, lng);
 
         //********** "Panel_Image" needs be replaced with an id on the div holding the results **********\\
 
         var map = new google.maps.Map(document.getElementById("Panel_Image"), {
-            center: pyrmont,
+            center: center,
             zoom: 15
         });
         var request = {
-            location: pyrmont,
+            location: center,
             radius: '5000',
-            type: ['restaurant']
+            keyword: ['sea food']
         };
 
         service = new google.maps.places.PlacesService(map);
@@ -45,8 +45,8 @@ function initialize() {
             var photoUrl = resp[0].photos[0].getUrl({ maxWidth: 400 });
             var restaurantPhoto = $("<img>");
             restaurantPhoto.attr("src", photoUrl);
-            restaurantPhoto.attr("alt", "cat image");
-            $("#restaurantPhoto").prepend(restaurantPhoto);
+            restaurantPhoto.attr("alt", resp[0].name);
+            $("#restaurantPhoto").html(restaurantPhoto);
 
         });
     });
