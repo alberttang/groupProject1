@@ -1,4 +1,14 @@
+
+// declaring initial variables 
+
+var foods
+var foodType
+
+// initialize function
 function initialize() {
+
+// Google autocomplete location for input form//
+
     var input = document.getElementById('city-input');
     var autocomplete = new google.maps.places.Autocomplete(input);
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -20,12 +30,21 @@ function initialize() {
             center: center,
             zoom: 15
         });
+
+// Func() for calling the Google Places API, for use of grabing the food type inside of the Weather AJAX http request
+
+function Func(){
+
+    //request variable used to run the Google Places Search
         var request = {
             location: center,
             radius: '5000',
-            keyword: ['sea food']
+            keyword: foods
         };
 
+        console.log("**********LOOOKKKKK " + foods)
+
+        // running the Google Places API Search 
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, function(resp) {
             //console log response
@@ -50,6 +69,12 @@ function initialize() {
 
         });
 
+    };
+
+
+//************** Weathe API Querying AJAX*******************************************
+
+// variable for the open Weather map API to query based on lat and long
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=fb715a35d9acbd969dacad1fb90c06bc&q&units=imperial"
         console.log(queryURL);
 
@@ -62,23 +87,50 @@ function initialize() {
                 console.log("Temp: "  + response.main.temp);
                
 
+//***********************************************************************************************************
+//**********Print Weather to HTML  ***************************************************************************************
                 $(".weather").html("It is Currently " + response.main.temp + "°F, ");
+//****************************************************************************************
 
+
+            //grab the temperature of the weathe API
                 temperature = response.main.temp;
 
+                //if statement to determine if the temperature is hot or warm or cold
                 if( temperature < 70){
 
                     foodType = "Cold";
 
                 } else if (temperature > 71 && temperature < 80 ){
+
                     foodType = "Warm";
+
                 } else {
+
                     foodType = "Hot"
                 };
 
+            // Print Food Type to HTML
             $(".foodType").html("It's "+ foodType);
+
+
+//***********If statment to determine what food to query *************************
+            if(foodType === "Cold"){
+
+                foods = "soup";
+
+            } else  {
+
+                foods = "icecream";
+            }
+//*********************************************************************************
+
+//** Run Function to query Google Places API with Foodtype
+            Func();
 
         });
     });
 }
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
