@@ -7,6 +7,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHditS1btTeWikY3Z5_R8r1ngePKFlh7c&libraries=places"></script>
 </head>
 
 <body>
@@ -21,12 +23,10 @@
                     <form>
 
                         <div class="row">
-                            <div class="col-lg-4">
+                            <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="city-input">Location</label>
-                                    <input type="text" class="form-control " id="city-input">
+                                    <input type="text" class="form-control input-lg" id="city-input" placeholder="Enter your location" autocomplete="on" runat="server">
                                 </div>
-                                <button type="submit" class="btn submit-btn btn-default">Submit</button>
                     </form>
                     </div>
                     </div>
@@ -63,7 +63,11 @@
                 </div>
                 <!-- *********************************************** -->
                 <div class="panel-body">
-                    <img class="img-responsive" src="images/pho.jpg" class="img-rounded" id="Panel_Image">
+                    <p id="restaurantPhoto"></p>
+                    <p id="restaurantName"></p>
+                    <p id="restaurantAddress"></p>
+                    <p id="restaurantHours"></p>
+                    <p id="restaurantRating"></p>
                 </div>
                 <!-- *********************************************** -->
             </div>
@@ -132,8 +136,6 @@
         </div>
     </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type=“text/javascript” src=“https://maps.googleapis.com/maps/api/js?key=AIzaSyAHditS1btTeWikY3Z5_R8r1ngePKFlh7c&libraries=places”></script>
     <script type="text/javascript" src="./app.js"></script>
 </body>
 

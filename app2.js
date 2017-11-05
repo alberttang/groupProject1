@@ -49,36 +49,6 @@ function initialize() {
             $("#restaurantPhoto").html(restaurantPhoto);
 
         });
-
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=fb715a35d9acbd969dacad1fb90c06bc&q&units=imperial"
-        console.log(queryURL);
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-            }).done(function(response) {
-
-                console.log(response);
-                console.log("Temp: "  + response.main.temp);
-               
-
-                $(".weather").html("It is Currently " + response.main.temp + "°F, ");
-
-                temperature = response.main.temp;
-
-                if( temperature < 70){
-
-                    foodType = "Cold";
-
-                } else if (temperature > 71 && temperature < 80 ){
-                    foodType = "Warm";
-                } else {
-                    foodType = "Hot"
-                };
-
-            $(".foodType").html("It's "+ foodType);
-
-        });
     });
 }
 google.maps.event.addDomListener(window, 'load', initialize);
