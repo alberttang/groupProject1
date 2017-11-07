@@ -52,7 +52,7 @@ function Func(){
             console.log("Restaurant Name:" + " " + resp[0].name);
             console.log("Address:" + " " + resp[0].vicinity);
             console.log("Opening Hours:" + " " + resp[0].opening_hours.open_now);
-            console.log("Raiting:" + " " + resp[0].rating);
+            console.log("Rating:" + " " + resp[0].rating);
             console.log("Restaurant Photo URL:" + " " + resp[0].photos[0].getUrl({ maxWidth: 400 }));
 
             // Push to HTML
@@ -72,7 +72,7 @@ function Func(){
     };
 
 
-//************** Weathe API Querying AJAX*******************************************
+//************** Weather API Querying AJAX*******************************************
 
 // variable for the open Weather map API to query based on lat and long
         var queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=fb715a35d9acbd969dacad1fb90c06bc&q&units=imperial"
@@ -117,7 +117,7 @@ function Func(){
 //***********If statment to determine what food to query *************************
             if(foodType === "Cold"){
 
-                foods = "soup";
+                foods = "soup" || "ramen";
 
             } else  {
 
