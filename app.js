@@ -60,13 +60,14 @@ $(".submit-btn").on("click", function() {
 
 
 	// array of food recommendations // rey
-	cold = ["Ramen", "Pho", "Soup (Boudin/Soup Plantation)", "Shabu (hot pot)", "Korean BBQ", "Soon Do Boo (Korean Tofu Soup)", "Chicken Tikka Masala", "Hot chocolate"];
-	warm = ["Boba", "Ice Cream", "Mac n cheese", "Shaved Ice", "Burgers (In and out)", "Café’s"];
-	hot = ["Boba", "Shaved Ice ", "Gelato", "Salad", "Smoothies (Jamba Juice)", "Breweries (Anaheim Packing House)"];
+	var cold = ["Ramen", "Pho", "Soup (Boudin/Soup Plantation)", "Shabu (hot pot)", "Korean BBQ", "Soon Do Boo (Korean Tofu Soup)", "Chicken Tikka Masala", "Hot chocolate"];
+	var warm = ["Boba", "Ice Cream", "Mac n cheese", "Shaved Ice", "Burgers (In and out)", "Café’s"];
+	var hot = ["Boba", "Shaved Ice ", "Gelato", "Salad", "Smoothies (Jamba Juice)", "Breweries (Anaheim Packing House)"];
+
+
+	for (var i = 0; i < warm.length; i++) {
+		console.log(warm);
+	}
 
 
 
-
-
-
-	
