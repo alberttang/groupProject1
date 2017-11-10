@@ -1,12 +1,19 @@
 body{
-	background-color:	
+	background-color:none;
+	font-family: 'Sanchez', serif;
+	background-size: 100%;
 }
 .jumbotron{
 	background-color: white;
+}
+
+.btn{
+	background-color: black;
+}
 
 }
 .container {
-	align-content: center;
+	align-content:
 }
 .images {
 	height:325px;
@@ -14,5 +21,35 @@ body{
 	margin-left: 17PX;
 	margin-top: 10px;
 }
+.nav-wrapper{
+	background-color:black;
+}
+
+.page-footer{
+	background-color: ;
+	text-align: center;
+}
+
+.panel-primary > .panel-heading {
+background: black;
+color: white;
+box-shadow: 2px 2px 10px black;
+}
+
+.panel-body:{
+	box-shadow: 1px 1px 1px black;
+	background-color: blue;
+}
+
+.panel {
+	box-shadow: 1px 1px 1px black;
+
+}
+
+
+
+
+
+
 
 
