@@ -5,16 +5,12 @@ body{
 }
 .jumbotron{
 	background-color: white;
+	box-shadow: 1px 1px 5px 1px black;
+	background-image: url(images/Ramen.jpg);
+	color:white;
+	font-weight: bold;
 }
 
-.btn{
-	background-color: black;
-}
-
-}
-.container {
-	align-content:
-}
 .images {
 	height:325px;
 	width:325px;
@@ -25,15 +21,15 @@ body{
 	background-color:black;
 }
 
-.page-footer{
-	background-color: ;
+.footer{
 	text-align: center;
+	
 }
 
 .panel-primary > .panel-heading {
 background: black;
 color: white;
-box-shadow: 2px 2px 10px black;
+box-shadow: 1px 1px 10px black;
 }
 
 .panel-body:{
@@ -45,8 +41,10 @@ box-shadow: 2px 2px 10px black;
 	box-shadow: 1px 1px 1px black;
 
 }
+.page-footer{
+	background-color: #000;
 
-
+}
 
 
 
