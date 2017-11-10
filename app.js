@@ -66,7 +66,7 @@ function googlePlacesSearch(foods){
         
 
           	// Push to HTML
-		$("#restaurantName-1").html(resp[0].name);
+		$("#restaurant-1").html(resp[0].name);
 		$("#restaurantAddress-1").html("Address: " + resp[0].vicinity);
         $("#restaurantRating-1").html("Rating: " + resp[0].rating);
         
@@ -76,9 +76,10 @@ function googlePlacesSearch(foods){
 		restaurantPhoto.attr("src", photoUrl);
 		restaurantPhoto.attr("alt", resp[0].name);
         $("#restaurantPhoto-1").html(restaurantPhoto);
+
         
         	// Second Results Push to Second Container
-		$("#restaurantName-2").html(resp[1].name);
+		$("#restaurant-2").html(resp[1].name);
 		$("#restaurantAddress-2").html("Address: " + resp[1].vicinity);
 		$("#restaurantRating-2").html("Rating: " + resp[1].rating);
 		// generate image
@@ -89,15 +90,48 @@ function googlePlacesSearch(foods){
         $("#restaurantPhoto-2").html(restaurantPhoto);
         
         	// Print the third results to the third results container
-		$("#restaurantName-3").html(resp[2].name);
-		$("#restaurantAddress-3").html("Address: " + resp[0].vicinity);
-		$("#restaurantRating-3").html("Rating: " + resp[0].rating);
+		$("#restaurant-3").html(resp[2].name);
+		$("#restaurantAddress-3").html("Address: " + resp[2].vicinity);
+		$("#restaurantRating-3").html("Rating: " + resp[2].rating);
 		// generate image
-		var photoUrl = resp[2].photos[2].getUrl({ maxWidth: 400 });
+		var photoUrl = resp[2].photos[0].getUrl({ maxWidth: 280 });
 		var restaurantPhoto = $("<img>");
 		restaurantPhoto.attr("src", photoUrl);
 		restaurantPhoto.attr("alt", resp[2].name);
-		$("#restaurantPhoto-1").html(restaurantPhoto);
+        $("#restaurantPhoto-3").html(restaurantPhoto);
+        
+          	// Print the 4th results to the third results container
+		$("#restaurant-4").html(resp[3].name);
+		$("#restaurantAddress-4").html("Address: " + resp[3].vicinity);
+		$("#restaurantRating-4").html("Rating: " + resp[3].rating);
+		// generate image
+		var photoUrl = resp[3].photos[0].getUrl({ maxWidth: 280 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[3].name);
+        $("#restaurantPhoto-4").html(restaurantPhoto);
+        
+               	// Print the 5th results to the third results container
+		$("#restaurant-5").html(resp[4].name);
+		$("#restaurantAddress-5").html("Address: " + resp[4].vicinity);
+		$("#restaurantRating-5").html("Rating: " + resp[4].rating);
+		// generate image
+		var photoUrl = resp[4].photos[0].getUrl({ maxWidth: 280 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[4].name);
+        $("#restaurantPhoto-5").html(restaurantPhoto);
+        
+        // Print the 6th results to the third results container
+		$("#restaurant-6").html(resp[5].name);
+		$("#restaurantAddress-6").html("Address: " + resp[5].vicinity);
+		$("#restaurantRating-6").html("Rating: " + resp[5].rating);
+		// generate image
+		var photoUrl = resp[5].photos[0].getUrl({ maxWidth: 280 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[5].name);
+		$("#restaurantPhoto-6").html(restaurantPhoto);
 
         });
 
