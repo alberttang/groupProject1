@@ -3,6 +3,10 @@
 
 var foods
 var foodType
+var coldFoods = ["Pho", "Burgers", "Pizza", "Soup", "Hot Chocolate"]
+var warmFoods = ["Boba", "Ice Cream", "Mac n Cheese", "Shaved Ice", "Burgers"]
+var hotFoods = ["Shaved Ice", "Boba", "Gelato", "Salad", "Smoothies", "Breweries"]
+
 
 // initialize function
 function initialize() {
@@ -33,7 +37,8 @@ function initialize() {
 
 // Func() for calling the Google Places API, for use of grabing the food type inside of the Weather AJAX http request
 
-function Func(){
+function googlePlacesSearch(foods){
+    console.log('gps what food? ', foods);
 
     //request variable used to run the Google Places Search
         var request = {
@@ -47,25 +52,52 @@ function Func(){
         // running the Google Places API Search 
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, function(resp) {
-            //console log response
-            console.log(resp);
-            console.log("Restaurant Name:" + " " + resp[0].name);
-            console.log("Address:" + " " + resp[0].vicinity);
-            console.log("Opening Hours:" + " " + resp[0].opening_hours.open_now);
-            console.log("Raiting:" + " " + resp[0].rating);
-            console.log("Restaurant Photo URL:" + " " + resp[0].photos[0].getUrl({ maxWidth: 400 }));
 
-            // Push to HTML
-            $("#restaurantName").html(resp[0].name);
-            $("#restaurantAddress").html(resp[0].vicinity);
-            $("#restaurantHours").html(resp[0].opening_hours.open_now);
-            $("#restaurantRating").html(resp[0].rating);
-            // generate image
-            var photoUrl = resp[0].photos[0].getUrl({ maxWidth: 400 });
-            var restaurantPhoto = $("<img>");
-            restaurantPhoto.attr("src", photoUrl);
-            restaurantPhoto.attr("alt", resp[0].name);
-            $("#restaurantPhoto").html(restaurantPhoto);
+            console.log(resp);
+    
+            //console log response
+            console.log("this is a test print" + foods)
+            console.log("Restaurant Name:" + " " + resp[2].name);
+            console.log("Address:" + " " + resp[2].vicinity);
+            console.log("Rating:" + " " + resp[2].rating);
+            console.log("Restaurant Photo URL:" + " " + resp[0].photos[0].getUrl({ maxWidth: 100 }));
+
+            //["0"].photos["0"].getUrl
+        
+
+          	// Push to HTML
+		$("#restaurantName-1").html(resp[0].name);
+		$("#restaurantAddress-1").html("Address: " + resp[0].vicinity);
+        $("#restaurantRating-1").html("Rating: " + resp[0].rating);
+        
+		// generate image
+		var photoUrl = resp[0].photos[0].getUrl({ maxWidth: 280 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[0].name);
+        $("#restaurantPhoto-1").html(restaurantPhoto);
+        
+        	// Second Results Push to Second Container
+		$("#restaurantName-2").html(resp[1].name);
+		$("#restaurantAddress-2").html("Address: " + resp[1].vicinity);
+		$("#restaurantRating-2").html("Rating: " + resp[1].rating);
+		// generate image
+		var photoUrl = resp[1].photos[0].getUrl({ maxWidth: 280 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[1].name);
+        $("#restaurantPhoto-2").html(restaurantPhoto);
+        
+        	// Print the third results to the third results container
+		$("#restaurantName-3").html(resp[2].name);
+		$("#restaurantAddress-3").html("Address: " + resp[0].vicinity);
+		$("#restaurantRating-3").html("Rating: " + resp[0].rating);
+		// generate image
+		var photoUrl = resp[2].photos[2].getUrl({ maxWidth: 400 });
+		var restaurantPhoto = $("<img>");
+		restaurantPhoto.attr("src", photoUrl);
+		restaurantPhoto.attr("alt", resp[2].name);
+		$("#restaurantPhoto-1").html(restaurantPhoto);
 
         });
 
@@ -117,16 +149,25 @@ function Func(){
 //***********If statment to determine what food to query *************************
             if(foodType === "Cold"){
 
-                foods = "soup";
+                foods = coldFoods;
 
-            } else  {
+                // add ajax call here to google places api using a for loop of an array of cold food items 
+
+               var randomFoodfromArray = coldFoods[Math.floor(Math.random()*coldFoods.length)];
+               console.log('cold arr: ',randomFoodfromArray)
+
+                googlePlacesSearch(randomFoodfromArray);
+                
+                }
+
+             else  {
 
                 foods = "icecream";
             }
 //*********************************************************************************
 
 //** Run Function to query Google Places API with Foodtype
-            Func();
+           // googlePlacesSearch();
 
         });
     });
