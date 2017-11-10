@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cloudy with a chance of pho.</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Materialize -->
+    <!--google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHditS1btTeWikY3Z5_R8r1ngePKFlh7c&libraries=places"></script>
+</head>
+
+<body background="images/background.jpeg">
+
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">WeatherEats</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#location" "sass.html">Location</a></li>
+                    <li><a href="#weather" "badges.html">Weather</a></li>
+                    <li><a href="#food" "collapsible.html">Suggestions</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <!-- cloudy with a chance of pho Jumbotron -->
+            <div class="jumbotron" id="location">
+                <div class="container">
+                    <h1 class="text-center">Cloudy with a chance of pho.</h1>
+                    <p class="text-center">Eat with todays weather!</p>
+                    <!-- ++++++++++++++++++++++++++++++++++++++++++-->
+                    <div class="panel-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control " id="city-input" placeholder="Enter your location" autocomplete="on" runat="server">
+                                    </div>
+                        </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ++++++++++++++++++++++++++++++++++++++++++-->
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Recent Search</div>
+                        <div class="panel-body"><span class=""></span></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row" id="weather">
+                <!-- Display weather based on user location -->
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-heading-custom">
+                            <h3 class="panel-title text-center" id="restaurant">Weather</h3>
+                        </div>
+                        <div class="panel-body  text-center">
+                            <p><span class="weather"></span>
+                                <span class="foodType"></span></p>
+                        </div>
+                    </div>
+                    <div class="panel panel-transparent" id="Panel_Image">
+                        <div class="panel-body">
+                            <h2 class="text-center">Food Suggestions</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m3 firstCard"></div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="page-footer">
+            <div class="container">
+                © 2017 Copyright Project One
+            </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./testApp.js"></script>
+    </body>
+
+</html>
