@@ -7,9 +7,14 @@ var coldFoods = ["Pho", "Burgers", "Pizza", "Soup", "Hot Chocolate"]
 var warmFoods = ["Boba", "Ice Cream", "Mac n Cheese", "Shaved Ice", "Burgers"]
 var hotFoods = ["Shaved Ice", "Boba", "Gelato", "Salad", "Smoothies", "Breweries"]
 
-
+function keypress(){
+$(document).on("keypress", "form", function(event) { 
+    return event.keyCode != 13;
+}); 
+}
 // initialize function
 function initialize() {
+    keypress();
 
 // Google autocomplete location for input form//
 
