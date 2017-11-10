@@ -155,7 +155,7 @@ function googlePlacesSearch(foods){
 
 //***********************************************************************************************************
 //**********Print Weather to HTML  ***************************************************************************************
-                $(".weather").html("It is Currently " + response.main.temp + "°F, ");
+                $(".weather").html("It's Currently " + response.main.temp + " °F, ").css("font-weight", "bold");
 //****************************************************************************************
 
 
@@ -177,7 +177,7 @@ function googlePlacesSearch(foods){
                 };
 
             // Print Food Type to HTML
-            $(".foodType").html("It's "+ foodType);
+            $(".foodType").html("That's kinda "+ foodType + ". We recommend you eat one of the following:").css("font-weight", "bold");
 
 
 //***********If statment to determine what food to query *************************
