@@ -10,6 +10,11 @@ body {
     color: red;
 }
 
+#city-input{
+    background-color: #f2f2f2;
+    border-radius: 50px;
+    padding: 10px;
+}
 
 .images {
     height: 325px;
