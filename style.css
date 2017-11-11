@@ -4,6 +4,12 @@ body{
 	background-size: 100%;
     background-image: url(images/background.jpeg);
 }
+
+#input-message{
+  font-size: 20px;
+  color: red;
+}
+
 .jumbotron{
 	background-color: white;
 	box-shadow: 1px 1px 5px 1px black;
