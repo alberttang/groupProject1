@@ -3,8 +3,8 @@
 var foods
 var foodType
 var coldFoods = ["Pho", "Chilli", "Spicy", "Soup", "Hot Chocolate"]
-var warmFoods = ["Boba", "Ice Cream", "Mac n Cheese", "Shaved Ice", "Burgers"]
-var hotFoods = ["Shaved Ice", "Boba", "Gelato", "Salad", "Smoothies", "Breweries"]
+var warmFoods = ["Boba", "Ice Cream", "Shaved Ice", "Burgers"]
+var hotFoods = ["Gelato", "Salad", "Smoothies", "Breweries"]
 
 //*************** Firebase **********************************************************************
 
@@ -260,7 +260,7 @@ database.ref().on("value", function(snapshot) {
     console.log(snapshot.val());
 
 
-    $("#recent-display").html("<p> Location: " + snapshot.val().usrLocation + "</p><p> Temperature: " + snapshot.val().usrTemp + "°F");
+    $(".recent-display").html("<p> Location: " + snapshot.val().usrLocation + "</p><p> Temperature: " + snapshot.val().usrTemp + "°F");
 
 
 }, function(errorObject) {
