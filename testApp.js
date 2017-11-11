@@ -2,27 +2,27 @@
 
 var foods
 var foodType
-var coldFoods = ["Pho", "Burgers", "Pizza", "Soup", "Hot Chocolate"]
+var coldFoods = ["Pho", "Chilli", "Spicy", "Soup", "Hot Chocolate"]
 var warmFoods = ["Boba", "Ice Cream", "Mac n Cheese", "Shaved Ice", "Burgers"]
 var hotFoods = ["Shaved Ice", "Boba", "Gelato", "Salad", "Smoothies", "Breweries"]
 
 //*************** Firebase **********************************************************************
 
 var config = {
-                apiKey: "AIzaSyBQaM8Oo_2iZEiV1AHFl3p1YCkAwOpLacA",
-                authDomain: "myproject-e1235.firebaseapp.com",
-                databaseURL: "https://myproject-e1235.firebaseio.com",
-                projectId: "myproject-e1235",
-                storageBucket: "myproject-e1235.appspot.com",
-                messagingSenderId: "402017814268"
-    };
+    apiKey: "AIzaSyBQaM8Oo_2iZEiV1AHFl3p1YCkAwOpLacA",
+    authDomain: "myproject-e1235.firebaseapp.com",
+    databaseURL: "https://myproject-e1235.firebaseio.com",
+    projectId: "myproject-e1235",
+    storageBucket: "myproject-e1235.appspot.com",
+    messagingSenderId: "402017814268"
+};
 
-    firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 
-    // Create a variable to reference the database
+// Create a variable to reference the database
 
-    var database = firebase.database();
+var database = firebase.database();
 
 //**************************************************************************************************
 
@@ -66,8 +66,12 @@ function initialize() {
 
         function googlePlacesSearch(food1, food2, food3, food4, food5) {
 
+
             $("#start-input").addClass("hide");
             $("#results").removeClass("hide");
+            $(".initial-form").removeAttr("id");
+            // $(".new-form").attr("id","city-input");
+
 
 
             $(".firstCard").empty();
@@ -113,9 +117,9 @@ function initialize() {
 
                     console.log(photoUrl);
 
-                    if (typeof photoUrl === 'undefined' || !photoUrl || null ){
+                    if (typeof photoUrl === 'undefined' || !photoUrl || null) {
                         photoURL = "via.placeholder.com/200x200"
-                    } 
+                    }
 
                     var restaurantPhoto = $("<img>");
                     var insertImage = $("#insert-image");
@@ -140,21 +144,22 @@ function initialize() {
                     var cardContent = $("<div>");
                     cardContent.attr("class", "card-content");
                     var cardP = $("<p>");
-                    cardP.html("<p>" + resAddress + "</p><p>Rating: " + resRating +"</p>")
+                    cardP.html("<p>" + resAddress + "</p><p>Rating: " + resRating + "</p>")
                     cardImageDiv.append(cardSpan);
                     cardContent.append(cardP);
                     cardDiv.append(cardContent)
                     cardContainer.append(cardDiv)
                     $(".firstCard").append(cardContainer);
 
-                                        // insertImage.html(restaurantPhoto);
+                    // insertImage.html(restaurantPhoto);
 
 
 
                 });
 
             };
-        }
+         initialize();   
+        };
 
 
         //************** Weathe API Querying AJAX*******************************************
@@ -173,7 +178,7 @@ function initialize() {
             console.log(inputLocation);
 
 
-          
+
 
 
 
@@ -187,11 +192,11 @@ function initialize() {
             //grab the temperature of the weathe API
             temperature = response.main.temp;
 
-             database.ref().set({
-            usrLocation: inputLocation,
-            usrTemp: temperature,
-            
-          });
+            database.ref().set({
+                usrLocation: inputLocation,
+                usrTemp: temperature,
+
+            });
 
             //if statement to determine if the temperature is hot or warm or cold
             if (temperature < 70) {
@@ -235,17 +240,30 @@ function initialize() {
 
 database.ref().on("value", function(snapshot) {
 
-        console.log(snapshot.val());
+    console.log(snapshot.val());
 
 
-      $("#recent-display").html( "<p> Location: " + snapshot.val().usrLocation + "</p><p> Temperature: " + snapshot.val().usrTemp + "°F");
-     
+    $("#recent-display").html("<p> Location: " + snapshot.val().usrLocation + "</p><p> Temperature: " + snapshot.val().usrTemp + "°F");
 
-    }, function(errorObject) {
 
-        console.log("The read failed: " + errorObject.code);
-    });
+}, function(errorObject) {
+
+    console.log("The read failed: " + errorObject.code);
+});
 //******************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
