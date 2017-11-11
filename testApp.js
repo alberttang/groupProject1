@@ -25,14 +25,15 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //**************************************************************************************************
-
+// ****** Prevent enter key from refreshing the page************************
 
 function keypress() {
     $(document).on("keypress", "form", function(event) {
         return event.keyCode != 13;
 
     });
-}
+};
+
 // initialize function
 function initialize() {
     keypress();
