@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cloudy with a chance of pho.</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
+    <!-- Google Fonts -->
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Materialize -->
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <!--google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHditS1btTeWikY3Z5_R8r1ngePKFlh7c&libraries=places"></script>
+</head>
+
+<body>
+    <div class="container center-div" id="start-input">
+        <h2 class="sentence text-center">Cloudy with a chance of  
+    <div class="slidingVertical">
+      <span> Pho.</span>
+      <span> Pizza.</span>
+      <span> Steak.</span>
+      <span> Sushi.</span>
+      <span> Pasta.</span>
+    </div>
+  </h2>
+        <h3 class="text-center">Eat with todays weather!</h3>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++-->
+        <div class="panel-body ">
+            <form>
+                <div class="row">
+                    <div class="col-lg-12  ">
+                        <div class="form-group ">
+                            <input type="text" class="form-control initial-form" id="city-input" placeholder="Enter your location & Select From Below" autocomplete="on" runat="server">
+                        </div>
+                        <p id="input-message"></p>
+            </form>
+            </div>
+            </div>
+            <!-- ++++++++++++++++++++++++++++++++++++++++++-->
+        </div>
+    </div>
+    <div class="container  hide" id="results">
+        <form>
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="form-group toggle">
+                        <input type="text" class="form-control new-form" placeholder="Enter your location" autocomplete="on" runat="server">
+                    </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Recent Search</div>
+                    <div class="panel-body"><span id="recent-display"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="weather">
+            <!-- Display weather based on user location -->
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading panel-heading-custom">
+                        <h3 class="panel-title text-center" id="restaurant">Weather</h3>
+                    </div>
+                    <div class="panel-body  text-center">
+                        <p><span class="weather"></span>
+                            <span class="foodType"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="Panel_Image" class="firstCard"></div>
+        </div>
+        </div>
+        <a href="#top" class="bktop"> Search Again!</a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+        <script type="text/javascript" src="./app.js"></script>
+</body>
+
+</html>
