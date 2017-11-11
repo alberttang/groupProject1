@@ -182,7 +182,7 @@ function initialize() {
         //************** Weathe API Querying AJAX*******************************************
 
         // variable for the open Weather map API to query based on lat and long
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=fb715a35d9acbd969dacad1fb90c06bc&q&units=imperial"
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lng + "&appid=fb715a35d9acbd969dacad1fb90c06bc&q&units=imperial"
         console.log(queryURL);
 
         $.ajax({
