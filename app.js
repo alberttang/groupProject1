@@ -25,7 +25,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //**************************************************************************************************
-
+// keypress function to prevent enter key from freshing the page on user input
 
 function keypress() {
       $(window).keydown(function(event){
@@ -35,8 +35,10 @@ function keypress() {
     }
   });
 }
-// initialize function
+// initialize function to run both Google places query and Open Weathermap API
 function initialize() {
+
+    //call keypress function
     keypress();
 
     // Google autocomplete location for input form//
@@ -64,33 +66,44 @@ function initialize() {
             zoom: 15
         });
 
-        // Func() for calling the Google Places API, for use of grabing the food type inside of the Weather AJAX http request
+        // Function for calling the Google Places API, for use of grabing the food type inside of the Weather AJAX http request
 
         function googlePlacesSearch(food1, food2, food3, food4, food5) {
 
+            //hide the initial input form
 
             $("#start-input").addClass("hide");
+
+            //remove the hide class from the results ID to show resturant reccomendations and weather
             $("#results").removeClass("hide");
+
+            // Remove ID from initial input form
             $(".initial-form").removeAttr("id");
-            // $(".new-form").attr("id","city-input");
+
+            //place city-input ID on new form on top of page to be used with places auto complete
+            $(".new-form").attr("id","city-input");
 
 
-
+            // clear all cards each time this function is ran
             $(".firstCard").empty();
 
-
+            //declaring food variable that is passed into the GoooglePlacesSearch function
             var foods = [food1, food2, food3, food4, food5];
-            console.log('gps what food? ', foods);
 
-            //request variable used to run the Google Places Search
+            //console log to see what is printing from foods
+            console.log('what food? ', foods);
+
+            // for loop to run 4 times through the foods array
             for (var i = 0; i < 4; i++) {
 
+            //request variable used to run the Google Places Search
                 var request = {
                     location: center,
                     radius: '5000',
                     keyword: foods[i]
                 };
 
+                // test to see what foods is being collected - for testint purposes
                 console.log("**********LOOOKKKKK " + foods[i])
 
                 // running the Google Places API Search 
@@ -99,58 +112,59 @@ function initialize() {
 
                     console.log(resp);
 
-                    //console log response
+                    //console log response - testing purposes
                     console.log("this is a test print" + foods)
                     console.log("Restaurant Name:" + " " + resp[0].name);
                     console.log("Address:" + " " + resp[0].vicinity);
                     console.log("Rating:" + " " + resp[0].rating);
                     console.log("Restaurant Photo URL:" + " " + resp[0].photos[0].getUrl({ maxWidth: 6000 }));
 
-                    // Push to HTML
+                    // Push to HTML + old code for reference (before dyanmically generating elements)
                     var resName = resp[0].name;
-                    $("#restaurantName").html(resp[0].name);
+                    // $("#restaurantName").html(resp[0].name);
                     var resAddress = resp[0].vicinity;
-                    $("#restaurantAddress").html(resp[0].vicinity);
+                    // $("#restaurantAddress").html(resp[0].vicinity);
                     //$("#restaurantHours").html(resp[0].opening_hours.open_now);
                     var resRating = resp[0].rating;
-                    $("#restaurantRating").html(resp[0].rating);
+                    // $("#restaurantRating").html(resp[0].rating);
                     // generate image
                     var photoUrl = resp[0].photos[0].getUrl({ maxWidth: 6000 });
-
-                    console.log(photoUrl);
-
-                    if (typeof photoUrl === 'undefined' || !photoUrl || null) {
-                        photoURL = "via.placeholder.com/200x200"
-                    }
-
                     var restaurantPhoto = $("<img>");
                     var insertImage = $("#insert-image");
                     restaurantPhoto.attr("src", photoUrl);
                     restaurantPhoto.attr("alt", resp[0].name);
                     // $("#insert-image").append(restaurantPhoto);
-                    console.log("look at this element" + restaurantPhoto);
 
 
-                    // Creates a div to hold the movie
+                    // Creates a element dynamically to make materialize card
+                    //create main card container
                     var cardContainer = $("<div>");
                     cardContainer.attr("class", "col s12 m6 hoverable")
+                    // create the card div
                     var cardDiv = $("<div>");
                     cardDiv.attr("class", "card")
+                    // create the card image div
                     var cardImageDiv = $("<div>");
                     cardImageDiv.attr("class", "card-image");
                     cardDiv.append(cardImageDiv);
                     cardImageDiv.append(restaurantPhoto);
+                    // create the card span to hold restaruant name
                     var cardSpan = $("<span>");
                     cardSpan.attr("class", "card-title");
                     cardSpan.html(resName);
+
+                    // create the card content div to hold address information
                     var cardContent = $("<div>");
                     cardContent.attr("class", "card-content");
+                    // create p tag that will go inside the card content
                     var cardP = $("<p>");
                     cardP.html("<p>" + resAddress + "</p><p>Rating: " + resRating + "</p>")
                     cardImageDiv.append(cardSpan);
                     cardContent.append(cardP);
                     cardDiv.append(cardContent)
                     cardContainer.append(cardDiv)
+
+                    //append the dynamically genereated card to the HTML
                     $(".firstCard").append(cardContainer);
 
                     // insertImage.html(restaurantPhoto);
@@ -160,6 +174,7 @@ function initialize() {
                 });
 
             };
+            // when for loop is over run initialize again so that the places autocomplete works with the new input form 
          initialize();   
         };
 
@@ -239,7 +254,7 @@ function initialize() {
 }
 
 //************FIREBASE*****************************************************************
-
+// Grab most recent value on firebase for location and temp and print to HTML
 database.ref().on("value", function(snapshot) {
 
     console.log(snapshot.val());
@@ -254,6 +269,7 @@ database.ref().on("value", function(snapshot) {
 });
 //******************************************************************************************
 
+// ********** back to top button
 $(document).ready(function() {
   $('a.bktop').click(function(e){
     $('html, body').animate({scrollTop:0}, '1000');
@@ -269,18 +285,5 @@ $(document).ready(function() {
 });
 
 //*******************************************
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Dom Listener to run initialize on load
 google.maps.event.addDomListener(window, 'load', initialize);

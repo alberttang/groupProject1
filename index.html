@@ -6,7 +6,6 @@
     <title>Cloudy with a chance of pho.</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Sanchez" rel="stylesheet">
@@ -20,23 +19,20 @@
 </head>
 
 <body>
-    <!--  <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">WeatherEats</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#location" "sass.html">Location</a></li>
-                    <li><a href="#weather" "badges.html">Weather</a></li>
-                    <li><a href="#food" "collapsible.html">Suggestions</a></li>
-                </ul>
-            </div>
-        </nav> -->
     <div class="container center-div" id="start-input">
-        <!-- cloudy with a chance of pho Jumbotron -->
-        <h1 class="text-center">Cloudy with a chance of pho.</h1>
-        <p class="text-center">Eat with todays weather!</p>
+        <h2 class="sentence text-center">Cloudy with a chance of  
+    <div class="slidingVertical">
+      <span> Pho.</span>
+      <span> Pizza.</span>
+      <span> Steak.</span>
+      <span> Sushi.</span>
+      <span> Pasta.</span>
+    </div>
+  </h2>
+        <h3 class="text-center">Eat with todays weather!</h3>
         <!-- ++++++++++++++++++++++++++++++++++++++++++-->
         <div class="panel-body ">
-            <form >
+            <form>
                 <div class="row">
                     <div class="col-lg-12  ">
                         <div class="form-group ">
@@ -54,7 +50,7 @@
             <div class="row">
                 <div class="col-lg-12 ">
                     <div class="form-group toggle">
-                        <input type="text" class="form-control new-form" id="city-input" placeholder="Enter your location" autocomplete="on" runat="server">
+                        <input type="text" class="form-control new-form" placeholder="Enter your location" autocomplete="on" runat="server">
                     </div>
         </form>
         <div class="row">
@@ -77,28 +73,14 @@
                             <span class="foodType"></span></p>
                     </div>
                 </div>
-                <!-- <div class="panel panel-transparent" id="Panel_Image">
-                        <div class="panel-body">
-                            <h2 class="text-center">Food Suggestions</h2>
-                        </div>
-                    </div> -->
             </div>
         </div>
         <div class="row">
             <div id="Panel_Image" class="firstCard"></div>
         </div>
         </div>
-        <!-- Footer -->
-        <!--   <footer class="page-footer">
-            <div class="container">
-                © 2017 Copyright Project One
-            </div>
-            </div>
-        </footer> -->
-        <!-- Footer -->
         <a href="#top" class="bktop"> Search Again!</a>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
         <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
         <script type="text/javascript" src="./app.js"></script>
 </body>
